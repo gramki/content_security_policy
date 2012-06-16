@@ -1,0 +1,18 @@
+{
+    "manifest_version":2,
+    "name":"CSP, AMD and Content Scripts Conflit",
+    "description":"We need two approaches to load modules in extension and content scripts",
+    "version":"0.0.1",
+    "content_scripts":[
+        {
+            "matches":["http://localhost/*/csp_problem/csp.html"],
+            "js":["js/jquery.js", "js/loader.js", "js/module.js"]
+        }
+    ],
+    "app":{
+        "launch":{
+            "local_path":"app.html"
+        }
+    },
+    "web_accessible_resources":["js/jquery.js", "js/loader.js", "js/module.js", "js/dependency1.js", "js/dependency2.js"]
+}
